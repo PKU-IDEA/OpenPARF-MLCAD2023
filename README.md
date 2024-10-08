@@ -1,6 +1,7 @@
 # OpenPARF-MLCAD2023
 
-This code is the submission from team MPKU for the MLCAD 2023 FPGA Macro Placement contest. [This code ranked first among all submitted teams](https://ieeexplore.ieee.org/document/10299868) after correcting data errors.
+This code is the submission from team MPKU for the MLCAD 2023 FPGA Macro Placement contest.
+`OpenPARF-MLCAD2023` is one of the state-of-the-art FPGA macro placement tools, which [ranked first among all submitted teams](https://ieeexplore.ieee.org/document/10299868) after correcting data errors.
 
 ## Table of Contents
 
