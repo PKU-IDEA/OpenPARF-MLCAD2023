@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+
+    runs-on: macOS-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Install ccache
+      run: brew install ccache
+
+    - name: Configure
+      run: cmake -Htest -Bbuild -DUSE_CCACHE=YES -DCCACHE_OPTIONS="CCACHE_CPP2=true;CCACHE_SLOPPINESS=clang_index_store"
+
+    - name: Build
+      run: "cmake --build build"
+
+    - name: Configure for XCode
+      run: cmake -Htest -Bbuildx -GXcode -DUSE_CCACHE=YES -DCCACHE_OPTIONS="CCACHE_CPP2=true;CCACHE_SLOPPINESS=clang_index_store"
+
+    - name: Build for XCode
+      run: "cmake --build buildx"
