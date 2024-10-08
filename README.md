@@ -120,7 +120,7 @@ bash ../scripts/mlcad2023_place.sh /root/OpenPARF ~/benchmarks/mlcad2023 unittes
 
 The results are stored in `/root/OpenPARF/mlcad2023_results/` within the container, which is mounted to `<output result directory on host>` on the host machine.
 
-## From `pl` file to `tcl` script
+## Bookshelf to Vivado TCL Conversion
 
 After the macro placement, we need to convert the `pl` file to a `tcl` script for the next step. We provide a script to do this. You can use it like this:
 
@@ -136,7 +136,7 @@ python <source dir>/scripts/macroplacement_bookshelf2vivado.py \
 
 In the final MLCAD2023 evaluation, Vivado ML 2021.1 is used to complete the standard cell placement. Specifically, the entire evaluation process is divided into the following steps:
 1. Custom placer completes macro placement (corresponding to the [Macro Placement](#macro-placement) section and our [mlcad2023_place.sh](./scripts/mlcad2023_place.sh) script)
-2. Convert the pl file to a Vivado tcl script (corresponding to the [From `pl` file to `tcl` script](#from-pl-file-to-tcl-script) section and our [mlcad2023_bookshelf2vivado.py](./scripts/mlcad2023_bookshelf2vivado.py) script)
+2. Convert the pl file to a Vivado tcl script (corresponding to the [Bookshelf to Vivado TCL Conversion](#bookshelf-to-vivado-tcl-conversion) section and our [mlcad2023_bookshelf2vivado.py](./scripts/mlcad2023_bookshelf2vivado.py) script)
 3. Use Vivado to complete standard cell placement and routing (corresponding to our [mlcad2023_vivado.py](./scripts/mlcad2023_vivado.py) script)
 4. Use Vivado to calculate evaluation metrics (corresponding to our [mlcad2023_eval.py](./scripts/mlcad2023_eval.py) script)
 
