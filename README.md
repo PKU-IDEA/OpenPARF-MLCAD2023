@@ -4,18 +4,18 @@ This code is the submission from team MPKU for the MLCAD 2023 FPGA Macro Placeme
 
 ## Table of Contents
 
-- [Data Correction](#data-correction)
-- [Macro Placement](#macro-placement)
+* [Data Correction](#data-correction)
+* [Macro Placement](#macro-placement)
     - [Using Pre-built Docker Image](#using-pre-built-docker-image)
     - [Build from Source](#build-from-source)
-- [Bookshelf to Vivado TCL Conversion](#bookshelf-to-vivado-tcl-conversion)
-- [One-click Run and Evaluation Script](#one-click-run-and-evaluation-script)
+* [Bookshelf to Vivado TCL Conversion](#bookshelf-to-vivado-tcl-conversion)
+* [One-click Run and Evaluation Script (Extremely Useful!)](#-one-click-run-and-evaluation-script-extremely-useful)
 
 ## Data Correction
 
 Before we start, we would like to point out that we have made some corrections to [the updated benchmark suite](https://www.kaggle.com/datasets/ismailbustany/updated-mlcad-2023-contest-benchmark) provided by the organizers. In addition to the problems mentioned in the FAQ, we have also encountered other problems.
 
-> [!CAUTION]
+> [! CAUTION]
 > It has come to our attention that it is imperative to rectify this data in order to ensure the seamless operation of the program.
 
 For the convenience of the organizers, we have provided scripts to correct the benchmark. These scripts are located in the `scripts/data_correction` folder. To correct the data, please follow the steps below:
@@ -24,7 +24,6 @@ For the convenience of the organizers, we have provided scripts to correct the b
 cd <path to the benchmark suite>
 bash <source dir>/scripts/data_correction/fix_benchmark.sh <source dir>
 ```
-
 
 ## Macro Placement
 
@@ -48,8 +47,8 @@ docker run -it --rm \
 ```
 
 You will then be present with a bash shell inside the container.
-The container includes our source code and precompiled binary under `/root/OpenPARF`.
-You can use the following command to place one single design (e.g., `Design_2`):
+The container includes our source code and precompiled binary under `/root/OpenPARF` .
+You can use the following command to place one single design (e.g., `Design_2` ):
 
 ```bash
 cd /root/OpenPARF/install
@@ -71,7 +70,7 @@ The results are stored in `/root/OpenPARF/mlcad2023_results/` within the contain
 
 ### Build from Source
 
-You can reproduce our build environment by looking at the Dockerfile at `docker/openparf.dockerfile`.
+You can reproduce our build environment by looking at the Dockerfile at `docker/openparf.dockerfile` .
 It contains the installation instructions of all dependencies.
 To build a docker environment, you can use the following commands:
 
@@ -142,6 +141,7 @@ In the final MLCAD2023 evaluation, Vivado ML 2021.1 is used to complete the stan
 4. Use Vivado to calculate evaluation metrics (corresponding to our [mlcad2023_eval.py](./scripts/mlcad2023_eval.py) script)
 
 We provide a complete script [mlcad2023_one4all.sh](./scripts/mlcad2023_one4all.sh) to run these four steps, which you can use with the following command:
+
 ```bash
 bash <source dir>/scripts/mlcad2023_one4all.sh <source dir> <benchmark dir> <config path> <home path>
 # Inside the docker container, you can use the following command to run
@@ -151,12 +151,11 @@ bash ../scripts/mlcad2023_one4all.sh /root/OpenPARF ~/benchmarks/mlcad2023 unitt
 ## The Team
 
 The main contributors to this repo are from the [PKU-IDEA](https://github.com/PKU-IDEA) Lab at Peking University, advised by [Prof. Yibo Lin](https://yibolin.com). The collaborators include:
-- [Jing Mai](https://magic3007.github.io), [Jiarui Wang](https://tomjerry213.github.io), Yifan Chen, [Zizheng Guo](https://guozz.cn), Xun Jiang, and [Yibo Lin](https://yibolin.com)
+* [Jing Mai](https://magic3007.github.io), [Jiarui Wang](https://tomjerry213.github.io), Yifan Chen, [Zizheng Guo](https://guozz.cn), Xun Jiang, and [Yibo Lin](https://yibolin.com)
 
 ## Citation
 
 If you find our work useful, please consider citing us as stated in the [main repo of OpenPARF](https://github.com/PKU-IDEA/OpenPARF).
-
 
 ## License
 
